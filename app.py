@@ -2,6 +2,14 @@ import sys
 # Updated for deployment
 import os
 import streamlit as st
+import nltk
+
+try:
+    nltk.download('punkt')
+    nltk.download('punkt_tab')
+    nltk.download('averaged_perceptron_tagger')
+except Exception as e:
+    pass
 
 # Add the project root to python path
 root_dir = os.path.dirname(os.path.abspath(__file__))
