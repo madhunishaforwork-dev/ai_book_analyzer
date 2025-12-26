@@ -32,7 +32,16 @@ class GoogleGeminiProvider(LLMProvider):
             # Check for errors
             if response.status_code != 200:
                 logger.error(f"Gemini API Error: {response.status_code} - {response.text}")
-                return f"API Error ({response.status_code}): {response.text}"
+                
+                # Try to parse friendly error
+                try:
+                    error_json = response.json()
+                    error_msg = error_json.get('error', {}).get('message', str(response.text))
+                    if response.status_code == 400 and "API key not valid" in error_msg:
+                        return "⚠️ **Invalid API Key.** Please check that you copied the key correctly without extra spaces."
+                    return f"⚠️ API Error ({response.status_code}): {error_msg}"
+                except:
+                    return f"⚠️ API Error ({response.status_code})"
                 
             result = response.json()
             # Extract text from response structure
