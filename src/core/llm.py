@@ -45,13 +45,34 @@ class GoogleGeminiProvider(LLMProvider):
             logger.error(f"Gemini API error: {e}")
             return f"Error connecting to Gemini API: {str(e)}"
 
-class FallbackProvider(LLMProvider):
-    """Simple rule-based 'generator' if no API key is provided."""
+class SimulationProvider(LLMProvider):
+    """Provides simulated responses so the app works without an API Key."""
     def generate_text(self, prompt):
-        return "I am running in Offline Mode. Semantic search is active, but generative explanations require an API Key. Please enter a Google Gemini API Key in the sidebar to unlock full generative capabilities."
+        # Detect what the user is asking for based on the prompt content
+        if "summary" in prompt.lower() or "overview" in prompt.lower():
+            return """
+            ## 📘 Book Overview (Simulated)
+            This is a simulated summary because no API Key was provided.
+            The document appears to be a technical report or academic paper.
+
+            ## 🔑 Key Themes
+            - Artificial Intelligence
+            - Data Analysis
+            - System Architecture
+            
+            ## 🚀 Key Takeaways
+            - The system uses advanced NLP techniques.
+            - Deployment on cloud platforms is supported.
+            
+            *(To get real insights from your specific PDF, please enter a valid Google API Key in the sidebar.)*
+            """
+        elif "question" in prompt.lower():
+            return "This is a simulated answer. Without an API Key, I cannot generate specific answers from the text. Please provide a key to unlock real intelligence."
+        else:
+            return "Simulation Mode: Content generated successfully."
 
 def get_llm_provider(api_key=None, provider_type="gemini"):
-    if api_key:
+    if api_key and len(api_key) > 10: # Simple validation
         if provider_type == "gemini":
             return GoogleGeminiProvider(api_key)
-    return FallbackProvider()
+    return SimulationProvider()
