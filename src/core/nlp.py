@@ -5,7 +5,7 @@ import numpy as np
 import streamlit as st
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.docstore.document import Document
+from langchain_core.documents import Document
 import logging
 
 # Configure logging
