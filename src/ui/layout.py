@@ -35,6 +35,7 @@ def render_sidebar():
         # API Key
         default_key = st.secrets.get("GEMINI_API_KEY", "") if "GEMINI_API_KEY" in st.secrets else ""
         api_key = st.text_input("Gemini API Key (Optional)", value=default_key, type="password", help="Providing an API key unlocks Generative Summaries and Chat.")
+        st.markdown("[🔑 Get a Free Gemini API Key](https://aistudio.google.com/app/apikey)", unsafe_allow_html=True)
         
         user_goal = st.selectbox(
             "🎯 Reading Purpose",
