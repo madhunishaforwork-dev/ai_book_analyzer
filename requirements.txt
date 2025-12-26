@@ -1,0 +1,16 @@
+
+streamlit
+PyPDF2
+langchain
+langchain-community
+sentence-transformers
+faiss-cpu
+plotly
+networkx
+textblob
+requests
+openai
+tiktoken
+pandas
+numpy
+scikit-learn

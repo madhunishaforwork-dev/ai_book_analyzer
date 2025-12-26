@@ -1,0 +1,57 @@
+{
+    "user_id": "99b89717-c03e-4ba5-b16e-0bc4bb453142",
+    "session_history": [
+        {
+            "timestamp": "2025-12-25T18:38:49.596167",
+            "type": "summary_generated",
+            "query": null,
+            "details": {
+                "goal": "General Reading"
+            }
+        },
+        {
+            "timestamp": "2025-12-25T18:44:07.953532",
+            "type": "summary_generated",
+            "query": null,
+            "details": {
+                "goal": "Exam Preparation"
+            }
+        },
+        {
+            "timestamp": "2025-12-25T18:51:42.691676",
+            "type": "summary_generated",
+            "query": null,
+            "details": {
+                "goal": "General Reading"
+            }
+        },
+        {
+            "timestamp": "2025-12-25T18:52:34.834533",
+            "type": "question_asked",
+            "query": "what is linux",
+            "details": null
+        },
+        {
+            "timestamp": "2025-12-25T18:54:19.709324",
+            "type": "summary_generated",
+            "query": null,
+            "details": {
+                "goal": "General Reading"
+            }
+        },
+        {
+            "timestamp": "2025-12-25T19:00:39.877560",
+            "type": "summary_generated",
+            "query": null,
+            "details": {
+                "goal": "General Reading"
+            }
+        }
+    ],
+    "preferences": {
+        "summary_depth": "Standard",
+        "interaction_style": "Neutral"
+    },
+    "topics_interested": [],
+    "last_active": 1766668088.713174
+}
